@@ -81,3 +81,9 @@ run ansible in diff mode
 
 # Ansible lint
 catches style related issues
+
+# Confirm hosts are reachable
+ansible all -m ping -i hosts - hosts is the inventory file
+
+# Run a playbook
+ansible-playbook -i hosts playbook.yml
