@@ -81,3 +81,17 @@ run ansible in diff mode
 
 # Ansible lint
 catches style related issues
+
+# Confirm hosts are reachable
+ansible all -m ping -i hosts - hosts is the inventory file
+
+# Run a playbook
+ansible-playbook -i hosts playbook.yml
+
+# Roles
+Roles are ways to group a number of tasks together
+
+# Create a role 
+ansible-galaxy init <role_name> --offline
+This creates a number of directories. Important ones are tasks where you define the tasks to be done. Tasks can be imported using import_tasks command. Vars directory and default are used to hold variables with vars directory having higher priority
+
