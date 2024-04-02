@@ -1,0 +1,5 @@
+---
+ - hosts: instance_1
+   roles:
+     - nginx
+   become: true
