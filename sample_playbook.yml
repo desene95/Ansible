@@ -1,0 +1,33 @@
+- #First play
+  name: Play1
+  hosts: localhost
+  vars:
+    packages:
+      - name: nginx
+        required: True
+      - name: mysql
+        required: True
+  tasks: #this tasks loops through packages and installs them is required
+    - name: Install "{{ item.name }}" on machine
+      apt:
+        name: "{{ item.name }}"
+        state: present
+      when: item.required == True
+      loop: "{{ packages }}"
+    command: date
+
+
+- #second play
+  name: Play 2
+  hosts: localhost
+  tasks:
+    - name: Start Webserver
+      service: #ansible module
+        name: httpd
+        state: started
+    
+    - name: install web service
+      yum:
+            name: httpd
+            state: present
+  
